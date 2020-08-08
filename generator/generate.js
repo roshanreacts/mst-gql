@@ -1080,9 +1080,9 @@ function resolveInterfaceAndUnionTypes(types) {
             type.fields.push(interfaceField) // Note: is inlining necessary? Deriving objects need to define all interface properties?
         })
       })
-      if (memberTypesToUnions.has(type.name)) {
+      if (memberTypesToUnions.has(type.origName)) {
         memberTypesToUnions
-          .get(type.name)
+          .get(type.origName)
           .forEach(union => upsertInterfaceOrUnionType(union, type, result))
       }
     }
